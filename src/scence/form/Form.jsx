@@ -14,14 +14,14 @@ function Form() {
         firstName : '',
         lastName : '',
         email : '',
-        Contact : '',
+        contact : '',
         address1 : '',
         address2  : '',
     }
 
 
 
-    const phoneRegExp =  '^\+?(\d{1,3})?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$'
+   
 
 
     const userSchema = yup.object().shape({
@@ -33,7 +33,6 @@ function Form() {
         .required('required'),
         contact : yup
         .string()
-        .matches(phoneRegExp,'phone number is not valid')
         .required('required'),
         address1 : yup.string().required('required'),
         address2 : yup.string().required('required'),
@@ -63,7 +62,7 @@ function Form() {
         {/* Formik Form  */}
 
         <Formik
-        onSubmit={()=>handleFormSubmit}
+        onSubmit={handleFormSubmit}
         initialValues={initialValues}
         validationSchema={userSchema}
         >
@@ -87,24 +86,79 @@ function Form() {
                   fullWidth
                   variant='filled'
                   type='text'
-                  label='First Name'
+                  label='Last Name'
                   onBlur={handleBlur}
-                  onChange={values.firstName}
+                  onChange={handleChange}
+                  value={values.lastName}
                   name='firstName'
-                  error={!!touched.firstName && !!errors.firstName }
-                  helperText={touched.firstName && errors.firstName}
+                  error={!!touched.lastName && !!errors.lastName }
+                  helperText={touched.lastName && errors.lastName}
                   sx={{gridColumn:'span 2'}}
                   />
+
+
+<TextField 
+                  fullWidth
+                  variant='filled'
+                  type='text'
+                  label='Email'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.email}
+                  name='email'
+                  error={!!touched.email && !!errors.email }
+                  helperText={touched.email && errors.email}
+                  sx={{gridColumn:'span 4'}}
+                  />
+
+                  <TextField 
+                  fullWidth
+                  variant='filled'
+                  type='text'
+                  label='Contact Number'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.contact}
+                  name='contact'
+                  error={!!touched.contact && !!errors.contact }
+                  helperText={touched.contact && errors.contact}
+                  sx={{gridColumn:'span 4'}}
+                  />
+
+                <TextField 
+                  fullWidth
+                  variant='filled'
+                  type='text'
+                  label='Address 1'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.address1}
+                  name='address1'
+                  error={!!touched.address1 && !!errors.address1 }
+                  helperText={touched.address1 && errors.address1}
+                  sx={{gridColumn:'span 4'}}
+                  />
+
+<TextField 
+                  fullWidth
+                  variant='filled'
+                  type='text'
+                  label='Address 2'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.address2}
+                  name='address2'
+                  error={!!touched.address2 && !!errors.address2}
+                  helperText={touched.address2 && errors.address2}
+                  sx={{gridColumn:'span 4'}}
+                  />
+
+
+
 
                 </Box>
               </Form>
           )}
-
-
-
-
-
-
 
 
         </Formik>
