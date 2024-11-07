@@ -7,7 +7,7 @@ import Dashboard from './scence/dashboard'
 import Team from "./scence/team/Team";
 import Invoices from './scence/invoices/Invoices'
 import Contacts from './scence/contacts/Contacts'
-import Form from './scence/form/Form'
+import FormComponent from "./scence/form/FormComponent";
 // import Bar from './scence/bar'
 // import Line from './scence/line'
 // import Pie from './scence/pie'
@@ -33,7 +33,7 @@ function App() {
               <Route path="/team" element={<Team/>} />
               <Route path="/contacts" element={<Contacts/>} />
               <Route path="/invoices" element={<Invoices/>} />
-              <Route path="/form" element={<Form/>} />
+              <Route path="/form" element={<FormComponent/>} />
               {/* <Route path="/bar" element={<Bar/>} /> */}
               {/* <Route path="/pie" element={<Pie/>} /> */}
               {/* <Route path="/line" element={<Line/>} /> */}
@@ -41,7 +41,6 @@ function App() {
               {/* <Route path="/geography" element={<Geography/>} /> */}
               {/* <Route path="/calendar" element={<Calendar/>} /> */}
               <Route />
-
 
             </Routes>
 

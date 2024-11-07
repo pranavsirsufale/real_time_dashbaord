@@ -1,13 +1,12 @@
-import React from 'react'
 import { Box,Button,TextField } from '@mui/material'
-import { Formik } from 'formik'
+import { Formik , Form  } from 'formik'
 import * as yup from 'yup'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Header from '../../components/Header'
 Header
 
 
-function Form() {
+function FormComponent() {
     const isNonMobile = useMediaQuery("(min-width:600px)")
 
     const initialValues = {
@@ -86,11 +85,27 @@ function Form() {
                   fullWidth
                   variant='filled'
                   type='text'
+                  label='First Name'
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.firstName}
+                  name='firstName'
+                  error={!!touched.firstName && !!errors.firstName }
+                  helperText={touched.firstName && errors.firstName}
+                  sx={{gridColumn:'span 2'}}
+                  />
+
+
+
+                  <TextField 
+                  fullWidth
+                  variant='filled'
+                  type='text'
                   label='Last Name'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.lastName}
-                  name='firstName'
+                  name='lastName'
                   error={!!touched.lastName && !!errors.lastName }
                   helperText={touched.lastName && errors.lastName}
                   sx={{gridColumn:'span 2'}}
@@ -157,6 +172,10 @@ function Form() {
 
 
                 </Box>
+
+                <Button type="submit" variant="contained" color="primary">
+                            Submit
+                        </Button>
               </Form>
           )}
 
@@ -172,7 +191,7 @@ function Form() {
   )
 }
 
-export default Form
+export default FormComponent
 
 
 
